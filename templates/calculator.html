@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <style>
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background: linear-gradient(135deg, #b3e0ff, #0052cc, #b3e0ff);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px 0px #888;
+            flex-grow: 1;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        p {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Калькулятор</h1>
+        <form action="/calculate" method="POST">
+            <input type="text" name="num_one" id="num_one" class="form-control" placeholder="Укажите первую цифру"><br>
+            <input type="text" name="num_two" id="num_two" class="form-control" placeholder="Укажите вторую цифру"><br>
+            <div class="form-group">
+              <label>Выберите операцию:</label>
+              <select name="operation">
+                <option value="add">Сложение</option>
+                <option value="subtract">Вычитание</option>
+                <option value="multiply">Умножение</option>
+                <option value="divide">Деление</option>
+              </select>
+            </div><br>
+            <input type="submit" class="btn btn-success" value="Получить результат"><br>
+            <p>Результат операции:</p>
+            <p>{{ result.operation }}</p>
+            <p>=</p>
+            <textarea name="text" id="text" class="form-control" placeholder="Результат">{{ result.result }}</textarea>
+        </form>
+    </div>
+</body>
+</html>
